@@ -14,7 +14,7 @@ class Dev(Configuration):
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SAMESITE = 'None'
     SESSION_COOKIE_SAMESITE = 'None'
-
+    
     REGISTRATION_OPEN = False
 
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -54,7 +54,17 @@ class Dev(Configuration):
         'allauth.socialaccount',
         'allauth.socialaccount.providers.google',
         'rest_framework',
+        'rest_framework.authtoken',
     ]
+
+    REST_FRAMEWORK = {
+      "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+      ]
+    }
+
 
     SITE_ID = 1
     ACCOUNT_USER_MODEL_USERNAME_FIELD = None
