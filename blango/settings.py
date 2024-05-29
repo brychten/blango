@@ -4,6 +4,13 @@ from configurations import Configuration, values
 import dj_database_url
 
 class Dev(Configuration):
+
+    SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
+    }
     INTERNAL_IPS = ["192.168.10.226"]
     ADMINS = [("Ben Shaw", "ben@example.com"), ("Leo Lucio", "leo@example.com")]
     ALLOWED_HOSTS = ['*']
@@ -55,6 +62,7 @@ class Dev(Configuration):
         'allauth.socialaccount.providers.google',
         'rest_framework',
         'rest_framework.authtoken',
+        'drf_yasg',
     ]
 
     REST_FRAMEWORK = {
