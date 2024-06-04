@@ -23,3 +23,9 @@ const p = lazyAdd(3, 4)
 p.then(resolvedCallback, rejectedCallback)
 
 lazyAdd("nan", "alsonan").then(resolvedCallback, rejectedCallback)
+
+const domContainer = document.getElementById('react_root')
+ReactDOM.render(
+  React.createElement(ClickButton),
+  domContainer
+)
